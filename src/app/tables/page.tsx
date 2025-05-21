@@ -1,6 +1,12 @@
+import { auth0 } from "@/lib/auth0";
 import PostRow from "@/components/Tables/PostRow";
+import Unauthorization from "@/components/Authorization/Unauthorization";
 
-export function tables() {
+export async function tables() {
+  const session = await auth0.getSession();
+  if (!session) {
+    return <Unauthorization />;
+  }
   return (
     <main className="min-h-screen w-screen p-8 pt-20 bg-white position-relative">
       <section className="w-11/12 md:w-3xl lg:w-5xl m-auto ">

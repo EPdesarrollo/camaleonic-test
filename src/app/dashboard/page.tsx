@@ -1,7 +1,13 @@
+import { auth0 } from "@/lib/auth0";
 import DashboardMain from "@/components/Dashboard/DashboardMain";
 import DashboardOptions from "@/components/Dashboard/DashboardOptions";
+import Unauthorization from "@/components/Authorization/Unauthorization";
 
-export function dashboard() {
+export async function dashboard() {
+  const session = await auth0.getSession();
+  if (!session) {
+    return <Unauthorization />;
+  }
   return (
     <main className="min-h-screen w-screen p-8 pt-20 bg-white  ">
       <h1 className="mb-4 text-4xl font-bold text-black">Dashboard</h1>
