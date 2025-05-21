@@ -1,0 +1,37 @@
+Imple aplication where user can acces to home but also can log in to acces to the dashboard and so be able to do CRUD operations
+
+
+
+1- Authentication
+    - Use of an external service
+    - User must login to acces dashboard
+
+2- Data Sources
+    - Data in a 'social media' style where i have USERS and POSTS
+    - This data is going to have the USERS and POSTS related
+    - The POSTS are going to have the 'TEMATICA' field so the graphics make sense
+    - The data structure would have by default Math.random numbers of LIKES, COMMENTS, SHARES, SAVES (CREATE BY MATH RANDOM AND SPECIFIED IN README)
+    - 
+
+3- Responsivness
+
+4- Design must be 'Camaleonic styles'
+
+5- Navbar
+    - Dashboard: style: https://dribbble.com/shots/5591195-Apex-React-Redux-Bootstrap-Admin-Dashboard
+                ...General filters that can be applied to the content
+                ...4 types of chart to display the data (ChartJS)
+    - Home: style: https://www.localyzer.io/
+            ...Introduction about the application
+            ...Modern and appealing style
+            ...Add some complex animations to make it look smooth and modern
+    - Tables:
+            ...Display dinamic tables showing the data BUT here in a tabular way. (if you add something it would appear)
+            ...A form to allow users to add new records
+            ...The user posts something and the like,comments,shares and saves get a math random number so it cab be displayed
+
+6- Database
+    -Use of Next.js API
+    -Use of whatever database
+
+7- README with instructions
