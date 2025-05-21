@@ -1,3 +1,6 @@
+"use client";
+import { useState } from "react";
+
 const data = [
   {
     id: 1,
@@ -18,6 +21,11 @@ const data = [
 ];
 
 export function PostRow() {
+  const [showForm, setShowForm] = useState(false);
+  function handleShowForm() {
+    setShowForm(!showForm);
+  }
+
   return (
     <div>
       {data.map((post) => {
@@ -44,6 +52,34 @@ export function PostRow() {
           </div>
         );
       })}
+      <button
+        onClick={handleShowForm}
+        className="mt-4 px-4 py-2  bg-blue-500 text-white  rounded-md hover:bg-blue-600 transition duration-200"
+      >
+        + Add Post
+      </button>
+      {showForm && (
+        <div className="w-screen h-screen fixed top-0 left-0 grid place-items-center bg-gray-900/50 backdrop-blur-xs">
+          <form className="w-3/4 mt-4 p-8 bg-slate-800 rounded-md relative">
+            <button
+              onClick={handleShowForm}
+              className="absolute top-1 right-2 text-red-600 text-3xl"
+            >
+              &times;
+            </button>
+            <textarea
+              className="w-full h-32 p-2 bg-white border border-gray-300 rounded-md "
+              placeholder="Write your post here..."
+            ></textarea>
+            <button
+              type="submit"
+              className="mt-2 px-4 py-1 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition duration-200"
+            >
+              Submit
+            </button>
+          </form>
+        </div>
+      )}
     </div>
   );
 }
