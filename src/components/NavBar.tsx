@@ -27,9 +27,8 @@ export function NavBar() {
           >
             Tables
           </a>
-
-          <LoginButton />
         </div>
+        <LoginButton />
       </div>
     </nav>
   );

@@ -5,7 +5,7 @@ import Unauthorization from "@/components/Authorization/Unauthorization";
 export async function tables() {
   const session = await auth0.getSession();
   if (!session) {
-    return <Unauthorization />;
+    return <Unauthorization pageTitle="Tables" />;
   }
   return (
     <main className="min-h-screen w-screen p-8 pt-20 bg-white position-relative">

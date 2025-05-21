@@ -1,9 +1,9 @@
-export function Unauthorization() {
+export function Unauthorization({ pageTitle }: { pageTitle: string }) {
   return (
     <main className="min-h-screen w-screen p-4 pt-20 bg-white grid place-items-center">
-      <div className="p-5 bg-gray-100 rounded-md shadow-md text-center">
-        <h1 className="mb-4 text-4xl font-bold text-black">Dashboard</h1>
-        <p>Forbidden: Log in to access this page.</p>
+      <div className="w-96 p-10 bg-gray-200 rounded-md shadow-md text-center">
+        <h1 className="mb-4 text-4xl text-black font-bold ">{pageTitle}</h1>
+        <p className="text-black">Log in to access this page.</p>
         <a href="/auth/login">
           <button className="mt-4 px-4 py-1  bg-blue-500 text-white  rounded-md hover:bg-blue-600 transition duration-200">
             Log in

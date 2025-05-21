@@ -6,7 +6,7 @@ export default function Home() {
       <section className=" h-screen w-screen p-8 grid place-items-center">
         <div className="w-11/12 md:w-3xl lg:w-5xl   flex flex-col gap-10 items-center justify-center">
           <img className="w-96" src="/logo_camaleonic.png" />
-          <h1 className="text-6xl text-center font-bold">
+          <h1 className="text-6xl text-center text-white font-bold">
             Real time data analysis to improve decision making
           </h1>
           <button className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition duration-200">
@@ -16,7 +16,7 @@ export default function Home() {
       </section>
       <Graphics />
       <section className="w-11/12 md:w-3xl lg:w-5xl m-auto mt-40 gap-16">
-        <p className="text-center text-2xl text-gray-500 mb-40 ">
+        <p className="text-center text-white text-2xl  mb-40 ">
           <em>
             ' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
             bibendum ipsum ut vulputate bibendum. Donec congue, sapien a finibus

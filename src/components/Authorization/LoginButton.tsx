@@ -17,7 +17,7 @@ export async function LoginButton() {
   }
   return (
     <div className="flex gap-x-4">
-      <h1 className="text-white">{session.user.name}!</h1>
+      <h1 className="text-white">{session.user.name}</h1>
       <a className="text-white" href="/auth/logout">
         Log out
       </a>
