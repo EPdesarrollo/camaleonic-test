@@ -1,9 +1,13 @@
 export function Footer() {
   return (
-    <footer className="w-screen  p-10 flex justify-center bg-black">
-      <div className="text-center">
-        <p className=" text-neutral-300">
-          © Camaleonic Analytics <span className="m-5 text-blue-50"> | </span>
+    <footer className="w-screen  p-10 bg-black">
+      <div className="m-auto flex flex-col md:flex-row justify-center items-center ">
+        <p className="text-sm md:text-base text-neutral-300">
+          © Camaleonic Analytics
+        </p>{" "}
+        <span className="hidden md:inline m-5 text-blue-50"> | </span>
+        <p className="text-sm md:text-base text-neutral-300">
+          {" "}
           All rights reserved
         </p>
       </div>
