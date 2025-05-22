@@ -5,7 +5,7 @@ export async function LoginButton() {
 
   if (!session) {
     return (
-      <div className="flex gap-x-4">
+      <div className="w-[30%]  flex justify-center gap-x-4">
         <a className="text-white" href="/auth/login?screen_hint=signup">
           Sign up
         </a>
@@ -16,7 +16,7 @@ export async function LoginButton() {
     );
   }
   return (
-    <div className="flex gap-x-4">
+    <div className="w-[30%]  flex justify-center gap-x-4">
       <h1 className="text-white">{session.user.name}</h1>
       <a className="text-white" href="/auth/logout">
         Log out

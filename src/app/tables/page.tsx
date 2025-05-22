@@ -8,26 +8,23 @@ export async function tables() {
     return <Unauthorization pageTitle="Tables" />;
   }
   return (
-    <main className="min-h-screen w-screen p-8 pt-20 bg-white position-relative">
-      <section className="w-11/12 md:w-3xl lg:w-5xl m-auto ">
-        <div className="flex col gap-2">
-          <div className="w-3/5 bg-gray-200 px-6 py-2">
+    <main className="min-h-screen w-screen pt-20 pb-20   bg-white position-relative">
+      <section className="w-[1200px] max-w-[95vw] md:max-w-[90vw] m-auto">
+        <div className=" flex col gap-1 md:gap-2">
+          <div className=" w-1/5 px-2 py-1 grid place-items-center bg-gray-200 text-[0.75rem] md:text-base  ">
             <p>Post ID</p>
           </div>
-          <div className="w-36 bg-gray-200 px-6 py-2">
+          <div className="w-1/5 px-2 py-1 grid place-items-center bg-gray-200 text-[0.75rem] md:text-base ">
             <p>Date</p>
           </div>
-          <div className="w-36 bg-gray-200 px-6 py-2 flex justify-center">
+          <div className="w-1/5 px-2 py-1 grid place-items-center flex justify-center bg-gray-200 text-[0.75rem] md:text-base  ">
             <p>Likes</p>
           </div>
-          <div className="w-36 bg-gray-200 px-6 py-2 flex justify-center">
+          <div className="w-1/5 px-2 py-1 grid place-items-center flex justify-center bg-gray-200 text-[0.75rem] md:text-base  ">
             <p>Coments</p>
           </div>
-          <div className="w-36 bg-gray-200 px-6 py-2 flex justify-center">
+          <div className="w-1/5 px-2 py-1 grid place-items-center flex justify-center bg-gray-200 text-[0.75rem] md:text-base  ">
             <p>Shares</p>
-          </div>
-          <div className="w-36 bg-gray-200 px-6 py-2 flex justify-center">
-            <p>Saves</p>
           </div>
         </div>
         <PostRow />

@@ -8,7 +8,6 @@ const data = [
     likes: 23,
     comments: 2,
     shares: 4,
-    saves: 12,
   },
   {
     id: 2,
@@ -16,7 +15,6 @@ const data = [
     likes: 30,
     comments: 5,
     shares: 8,
-    saves: 15,
   },
 ];
 
@@ -30,52 +28,51 @@ export function PostRow() {
     <div>
       {data.map((post) => {
         return (
-          <div key={post.id} className="mt-2 flex col gap-2">
-            <div className="w-3/5 bg-gray-200 px-6 py-2">
+          <div key={post.id} className="mt-2 flex col gap-1 md:gap-2">
+            <div className="w-1/5 px-2 py-1 grid place-items-center bg-gray-200 text-sm">
               <p>1</p>
             </div>
-            <div className="w-36 bg-gray-200 px-6 py-2">
+            <div className="w-1/5 px-2 py-1 grid place-items-center bg-gray-200 text-sm">
               <p>24/08</p>
             </div>
-            <div className="w-36 bg-gray-200 px-6 py-2 flex items-center justify-center">
+            <div className="w-1/5 px-2 py-1 grid place-items-center bg-gray-200 text-sm flex items-center justify-center">
               <p>23</p>
             </div>
-            <div className="w-36 bg-gray-200 px-6 py-2 flex items-center justify-center">
+            <div className="w-1/5 px-2 py-1 grid place-items-center bg-gray-200 text-sm flex items-center justify-center">
               <p>2</p>
             </div>
-            <div className="w-36 bg-gray-200 px-6 py-2 flex items-center justify-center">
+            <div className="w-1/5 px-2 py-1 grid place-items-center bg-gray-200 text-sm flex items-center justify-center">
               <p>4</p>
-            </div>
-            <div className="w-36 bg-gray-200 px-6 py-2 flex items-center justify-center">
-              <p>12</p>
             </div>
           </div>
         );
       })}
       <button
         onClick={handleShowForm}
-        className="mt-4 px-4 py-2  bg-blue-500 text-white  rounded-md hover:bg-blue-600 transition duration-200"
+        className="mt-4 px-2 py-1 md:px-4 md:py-2  bg-blue-500 text-sm md:text-base text-white  rounded-md hover:bg-blue-600 transition duration-200"
       >
         + Add Post
       </button>
       {showForm && (
         <div className="w-screen h-screen fixed top-0 left-0 grid place-items-center bg-gray-900/50 backdrop-blur-xs">
-          <form className="w-3/4 mt-4 p-8 bg-slate-800 rounded-md relative">
-            <button
-              onClick={handleShowForm}
-              className="absolute top-1 right-2 text-red-600 text-3xl"
-            >
-              &times;
-            </button>
+          <form className="w-[700px] max-w-[90vw] mt-4 p-4 md:p-8 bg-slate-800 rounded-md relative">
             <textarea
-              className="w-full h-32 p-2 bg-white border border-gray-300 rounded-md "
+              rows={10}
+              className="w-full  p-2 bg-white border border-gray-300 rounded-md "
               placeholder="Write your post here..."
             ></textarea>
             <button
               type="submit"
-              className="mt-2 px-4 py-1 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition duration-200"
+              className="mt-2 px-4 py-1 md:px-4 md:py-2   bg-blue-500 text-sm md:text-base text-white rounded-md hover:bg-blue-600 transition duration-200"
             >
               Submit
+            </button>
+            <button
+              onClick={handleShowForm}
+              type="button"
+              className="mt-2 ml-3 px-4 py-1 md:px-4 md:py-2   bg-red-500 text-sm md:text-base text-white rounded-md hover:bg-red-800 transition duration-200"
+            >
+              Cancel
             </button>
           </form>
         </div>
