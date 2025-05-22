@@ -5,14 +5,12 @@ import Unauthorization from "@/components/Authorization/Unauthorization";
 
 export async function dashboard() {
   const session = await auth0.getSession();
-  if (session) {
-    console.log("Session: ", session.user);
-  }
+
   if (!session) {
     return <Unauthorization pageTitle="Dashboard" />;
   }
   return (
-    <main className="min-h-screen w-screen pt-20 pb-20 bg-white  ">
+    <main className="min-h-screen w-screen pt-20 pb-10 md:pb-20 bg-white  ">
       <div className="w-[1200px]  max-w-[90vw] mx-auto">
         <h1 className=" mb-2 md:mb-4 text-4xl font-bold text-black">
           Dashboard

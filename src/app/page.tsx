@@ -1,6 +1,36 @@
 import Graphics from "@/components/Home/Graphics";
+import { auth0 } from "@/lib/auth0";
 
-export default function Home() {
+async function fetchData(session: any) {
+  try {
+    const res = await fetch("http://localhost:3000/api/users", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        session: session,
+      }),
+    });
+    if (!res.ok) {
+      throw new Error();
+    }
+    const data = await res.json();
+    if (data.status !== 200) {
+      throw new Error();
+    }
+    return data;
+  } catch (err) {
+    return null;
+  }
+}
+export async function Home() {
+  // session check
+  const session = await auth0.getSession();
+  if (session) {
+    await fetchData(session);
+  }
+
   return (
     <main className="min-h-screen w-screen ">
       <section className=" h-screen w-screen p-8 grid place-items-center">
@@ -29,3 +59,5 @@ export default function Home() {
     </main>
   );
 }
+
+export default Home;
