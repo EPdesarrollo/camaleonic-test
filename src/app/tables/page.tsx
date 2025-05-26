@@ -2,20 +2,21 @@ import { auth0 } from "@/lib/auth0";
 import PostTable from "@/components/Tables/PostTabel";
 import Unauthorization from "@/components/Authorization/Unauthorization";
 
-async function fetchData() {
+async function fetchData(user: string) {
   try {
-    const res = await fetch("http://localhost:3000/api/posts");
+    const params = new URLSearchParams({ user });
+    const res = await fetch(
+      `http://localhost:3000/api/posts?${params.toString()}`
+    );
     if (!res.ok) {
       throw new Error();
     }
     const data = await res.json();
-    // console.log("data: ", data);
     if (data.status !== 200) {
       throw new Error();
     }
     return data;
   } catch (err) {
-    console.log(err);
     return null;
   }
 }
@@ -25,7 +26,7 @@ export async function tables() {
   if (!session) {
     return <Unauthorization pageTitle="Tables" />;
   }
-  const data = await fetchData();
+  const data = await fetchData(session.user.nickname || "");
   if (!data) {
     return <p>Error: Fetch posts failed! </p>;
   }
@@ -51,7 +52,7 @@ export async function tables() {
             <p>Shares</p>
           </div>
         </div>
-        <PostTable posts={posts} />
+        <PostTable posts={posts} userSession={session.user.nickname} />
       </section>
     </main>
   );

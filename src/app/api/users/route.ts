@@ -2,7 +2,6 @@ import dbConnect from "@/lib/dbConnection";
 import User from "@/models/User";
 
 export async function POST(request: Request) {
-  //   return Response.json({ message: "Hello World", status: 200 });
   try {
     // session check
     const { session } = await request.json();
@@ -11,12 +10,7 @@ export async function POST(request: Request) {
     }
     const userSessionName = session.user?.nickname || null;
     const userSessionEmail = session.user?.email || null;
-    console.log(
-      "userSessionName: ",
-      userSessionName,
-      "userSessionEmail: ",
-      userSessionEmail
-    );
+
     if (!userSessionName || !userSessionEmail) {
       return Response.json({ message: "Unauthorized", status: 403 });
     }

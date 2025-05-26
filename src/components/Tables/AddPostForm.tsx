@@ -3,15 +3,29 @@ import { addPost } from "@/app/actions";
 
 export function AddPostForm({
   handleShowForm,
+  userSession,
 }: {
   handleShowForm: () => void;
+  userSession: string;
 }) {
+  const user = userSession;
+  if (!user) {
+    return (
+      <div className="w-screen h-screen fixed top-0 left-0 grid place-items-center bg-white backdrop-blur-xs">
+        <div className="w-[700px] max-w-[90vw] mt-4 p-4 md:p-8 bg-slate-800 rounded-md">
+          <p className="text-white">Please log in to add a post.</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="w-screen h-screen fixed top-0 left-0 grid place-items-center bg-gray-900/50 backdrop-blur-xs">
       <form
         action={addPost}
         className="w-[700px] max-w-[90vw] mt-4 p-4 md:p-8 bg-slate-800 rounded-md relative"
       >
+        <input name="user" hidden defaultValue={user} />
         <textarea
           required
           rows={10}

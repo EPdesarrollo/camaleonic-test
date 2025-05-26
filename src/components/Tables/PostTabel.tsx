@@ -2,7 +2,13 @@
 import { useState } from "react";
 import AddPostForm from "./AddPostForm";
 
-export function PostTable({ posts }: { posts: any }) {
+export function PostTable({
+  posts,
+  userSession,
+}: {
+  posts: any;
+  userSession: any;
+}) {
   const [showForm, setShowForm] = useState(false);
   function handleShowForm() {
     setShowForm(!showForm);
@@ -37,7 +43,12 @@ export function PostTable({ posts }: { posts: any }) {
       >
         + Add Post
       </button>
-      {showForm && <AddPostForm handleShowForm={handleShowForm} />}
+      {showForm && (
+        <AddPostForm
+          handleShowForm={handleShowForm}
+          userSession={userSession}
+        />
+      )}
     </div>
   );
 }

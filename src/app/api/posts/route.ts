@@ -1,37 +1,22 @@
 import dbConnect from "@/lib/dbConnection";
 import User from "@/models/User";
-import Post from "@/models/Post";
-import { text } from "stream/consumers";
 
 export async function GET(request: Request) {
   try {
-    // database
+    const { searchParams } = new URL(request.url);
+    const username = searchParams.get("user");
+    if (!username) {
+      return Response.json({ message: "User not found", status: 400 });
+    }
+
     await dbConnect();
-    // const user = await User.find({});
-    // console.log("user: ", user);
-    const posts = await Post.find({});
-    // const post = new Post({
-    //   text: "Hi my name is Camaleonic",
-    //   likes: Math.floor(Math.random() * 100),
-    //   comments: Math.floor(Math.random() * 100),
-    //   shares: Math.floor(Math.random() * 100),
-    // });
-    // await post.save();
-    // console.log("post: ", posts);
-    return Response.json({ posts, status: 200 });
+
+    const user = await User.findOne({ username: username }).populate("posts");
+    if (!user) {
+      return Response.json({ message: "User not found", status: 404 });
+    }
+    return Response.json({ posts: user.posts, status: 200 });
   } catch (err) {
-    console.log(err);
     return Response.json({ message: "Error creating post", status: 500 });
   }
 }
-
-// export async function POST(request: Request) {
-//   try {
-//     const { method } = request;
-//     console.log("method: ", method);
-//     return Response.json({ messaje: "Post posted!", status: 200 });
-//   } catch (err) {
-//     console.log(err);
-//     return Response.json({ message: "Error creating post", status: 500 });
-//   }
-// }
