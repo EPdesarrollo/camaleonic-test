@@ -11,7 +11,12 @@ export async function POST(request: Request) {
     }
     const userSessionName = session.user?.nickname || null;
     const userSessionEmail = session.user?.email || null;
-
+    console.log(
+      "userSessionName: ",
+      userSessionName,
+      "userSessionEmail: ",
+      userSessionEmail
+    );
     if (!userSessionName || !userSessionEmail) {
       return Response.json({ message: "Unauthorized", status: 403 });
     }

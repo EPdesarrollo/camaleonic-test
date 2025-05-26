@@ -11,9 +11,9 @@ interface Post extends mongoose.Document {
 const PostSchema = new Schema<Post>(
   {
     text: { type: String, required: true },
-    likes: { type: Number, default: 0 },
-    comments: { type: Number, default: 0 },
-    shares: { type: Number, default: 0 },
+    likes: { type: Number, required: true },
+    comments: { type: Number, required: true },
+    shares: { type: Number, required: true },
   },
   { timestamps: true }
 );

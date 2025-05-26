@@ -16,11 +16,13 @@ async function fetchData(session: any) {
       throw new Error();
     }
     const data = await res.json();
+    console.log("data: ", data);
     if (data.status !== 200) {
       throw new Error();
     }
     return data;
   } catch (err) {
+    console.log(err);
     return null;
   }
 }
