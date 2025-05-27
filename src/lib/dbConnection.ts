@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 import "@/models/User";
 import "@/models/Post";
+import { config } from "@/config/config";
 
 declare global {
   var mongoose: any; // This must be a `var` and not a `let / const`
@@ -13,7 +14,7 @@ if (!cached) {
 }
 
 async function dbConnect() {
-  const MONGODB_URI = process.env.MONGODB_URI!;
+  const { MONGODB_URI } = config;
 
   if (!MONGODB_URI) {
     throw new Error(
