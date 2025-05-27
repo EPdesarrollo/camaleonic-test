@@ -13,7 +13,7 @@ export function Graphics() {
           malesuada.
         </p>
         <img
-          className="w-full  p-18 border border-gray-200 shadow-lg rounded-2xl"
+          className="w-full p-5 md:p-18 border border-gray-200 shadow-lg rounded-2xl"
           src="/chartBar.png"
         />
       </div>
@@ -27,7 +27,7 @@ export function Graphics() {
             semper felis sit amet enim aliquam tristique.
           </p>
           <img
-            className="w-full p-8 border border-gray-200 shadow-lg rounded-2xl"
+            className="w-full p-5 md:p-8 border border-gray-200 shadow-lg rounded-2xl"
             src="/chartDoughnut.png"
           />
         </div>
@@ -40,7 +40,7 @@ export function Graphics() {
             semper felis sit amet enim aliSed sodales ligula in.
           </p>
           <img
-            className="w-full p-8 border border-gray-200 shadow-lg rounded-2xl"
+            className="w-full p-5 md:p-8 border border-gray-200 shadow-lg rounded-2xl"
             src="/chartPolarArea.png"
           />
         </div>
