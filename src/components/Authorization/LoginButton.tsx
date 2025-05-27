@@ -1,12 +1,11 @@
-import { auth0 } from "@/lib/auth0";
-
-export async function LoginButton() {
-  const session = await auth0.getSession();
-
+export function LoginButton({ session }: { session: any }) {
   if (!session) {
     return (
-      <div className="w-[30%]  flex justify-center gap-x-4">
-        <a className="text-white" href="/auth/login?screen_hint=signup">
+      <div className="w-[50%] md:w-[30%] flex justify-center gap-x-4">
+        <a
+          className="hidden md:inline text-white"
+          href="/auth/login?screen_hint=signup"
+        >
           Sign up
         </a>
         <a className="text-white" href="/auth/login">
@@ -17,7 +16,7 @@ export async function LoginButton() {
   }
   return (
     <div className="w-[30%]  flex justify-center gap-x-4">
-      <h1 className="text-white">{session.user.name}</h1>
+      <h1 className="text-white hidden md:inline">{session.user.name}</h1>
       <a className="text-white" href="/auth/logout">
         Log out
       </a>

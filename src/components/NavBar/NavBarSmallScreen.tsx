@@ -1,7 +1,8 @@
 "use client";
 import { useState } from "react";
+import LoginButton from "../Authorization/LoginButton";
 
-export function NavBarSmallScreen() {
+export function NavBarSmallScreen({ session }: { session: any }) {
   const [showLinks, setShowLinks] = useState(false);
   const handleShowLinks = () => {
     setShowLinks(!showLinks);
@@ -14,10 +15,10 @@ export function NavBarSmallScreen() {
       <a onClick={handleShowLinks} href="/">
         <img className="size-8 " src="/logo_simple_camaleonic.png" />
       </a>
+      <LoginButton session={session} />
       <button onClick={handleShowLinks}>
         <img src="/navBars.png" className="w-8 h-8" />
       </button>
-
       <div
         style={styleTranslate}
         className="absolute top-14 right-0  w-screen p-8  flex flex-col  bg-gray-600 transition-transform duration-300 ease-in-out"

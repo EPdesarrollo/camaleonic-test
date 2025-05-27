@@ -1,6 +1,6 @@
 import LoginButton from "../Authorization/LoginButton";
 
-export function NavBarBigScreen() {
+export function NavBarBigScreen({ session }: { session: any }) {
   return (
     <div className="hidden md:inline">
       <div className="w-[1200px] max-w-[90vw] content-center flex justify-between items-center">
@@ -28,7 +28,7 @@ export function NavBarBigScreen() {
             Tables
           </a>
         </div>
-        <LoginButton />
+        <LoginButton session={session} />
       </div>
     </div>
   );

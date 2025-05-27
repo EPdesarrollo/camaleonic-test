@@ -6,7 +6,7 @@ import Unauthorization from "@/components/Authorization/Unauthorization";
 export async function dashboard() {
   const session = await auth0.getSession();
   if (!session) {
-    return <Unauthorization pageTitle="Tables" />;
+    return <Unauthorization pageTitle="Dashboard" />;
   }
   const data = await fetchData(session.user.nickname || "");
   if (!data) {
