@@ -21,7 +21,6 @@ export function PostTable({
         const date = new Date(post.createdAt);
         const options: Intl.DateTimeFormatOptions = {
           year: "numeric",
-          month: "2-digit",
         };
         const formattedDate = new Intl.DateTimeFormat("en-US", options).format(
           date
@@ -29,28 +28,28 @@ export function PostTable({
 
         return (
           <div key={post._id} className="mt-2 flex col gap-1 md:gap-2">
-            <div className=" w-1/6 px-2 py-1 grid place-items-center bg-gray-200 text-sm">
+            <div className=" w-1/6 px-1 py-1 grid place-items-center bg-gray-200 text-[0.6rem] md:text-sm">
               <p>{idShort}</p>
             </div>
-            <div className=" w-1/6 px-2 py-1 grid place-items-center bg-gray-200 text-sm">
+            <div className=" w-1/6 px-1 py-1 grid place-items-center bg-gray-200 text-[0.6rem] md:text-sm">
               <p>{formattedDate}</p>
             </div>
-            <div className=" w-1/6 px-2 py-1 grid place-items-center bg-gray-200 text-sm flex items-center justify-center">
+            <div className=" w-1/6 px-1 py-1 grid place-items-center bg-gray-200 text-[0.6rem] md:text-sm ">
               <p>{post.likes}</p>
             </div>
-            <div className=" w-1/6 px-2 py-1 grid place-items-center bg-gray-200 text-sm flex items-center justify-center">
+            <div className=" w-1/6 px-1 py-1 grid place-items-center bg-gray-200 text-[0.6rem] md:text-sm ">
               <p>{post.comments}</p>
             </div>
-            <div className=" w-1/6 px-2 py-1 grid place-items-center bg-gray-200 text-sm flex items-center justify-center">
+            <div className=" w-1/6 px-1 py-1 grid place-items-center bg-gray-200 text-[0.6rem] md:text-sm ">
               <p>{post.shares}</p>
             </div>
-            <div className=" w-1/6 px-2 py-1 grid place-items-center bg-gray-200 text-sm flex items-center justify-center">
+            <div className=" w-1/6 px-1 py-1 grid place-items-center bg-gray-200 text-[0.6rem] md:text-sm ">
               <p>{post.saves}</p>
             </div>
-            <div className=" w-1/6 px-2 py-1 grid place-items-center bg-gray-200 text-sm flex items-center justify-center">
+            <div className=" w-1/6 px-1 py-1 grid place-items-center bg-gray-200 text-[0.6rem] md:text-sm ">
               <p>{post.unlikes}</p>
             </div>
-            <div className=" w-1/6 px-2 py-1 grid place-items-center bg-gray-200 text-sm flex items-center justify-center">
+            <div className=" w-1/6 px-1 py-1 grid place-items-center bg-gray-200 text-[0.6rem] md:text-sm ">
               <p>{post.reports}</p>
             </div>
           </div>
@@ -58,7 +57,7 @@ export function PostTable({
       })}
       <button
         onClick={handleShowForm}
-        className="mt-4 px-2 py-1 md:px-4 md:py-2  bg-blue-500 text-sm md:text-base text-white  rounded-md hover:bg-blue-600 transition duration-200"
+        className="mt-4 px-2 py-1 md:px-3 md:py-1  bg-blue-500 text-[0.8rem] md:text-sm text-white  rounded-md hover:bg-blue-600 transition duration-200"
       >
         + Add Post
       </button>

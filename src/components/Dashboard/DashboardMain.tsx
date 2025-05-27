@@ -13,8 +13,16 @@ export function DashboardMain({ posts }: { posts: any[] }) {
     );
   }
   const [selectedPost, setSelectedPost] = useState(posts[0]?._id || "");
+  const [selectedChart, setSelectedChart] = useState<
+    "BarChart" | "DoughnutChart" | "PolarAreaChart" | "RadarChart"
+  >("BarChart");
   function handleSelectedPost(e: React.ChangeEvent<HTMLSelectElement>) {
     setSelectedPost(e.target.value);
+  }
+  function handleSelectedChart(
+    chartType: "BarChart" | "DoughnutChart" | "PolarAreaChart" | "RadarChart"
+  ) {
+    setSelectedChart(chartType);
   }
 
   const post = posts
@@ -22,13 +30,16 @@ export function DashboardMain({ posts }: { posts: any[] }) {
       return post._id === selectedPost;
     })
     .flatMap((post) => post);
-
+  const postTitle = post[0]._id.slice(post[0]._id.length - 4);
   return (
-    <div className="w-[1200px]  max-w-[90vw] mx-auto">
-      <h1 className=" mb-2 md:mb-4 text-4xl font-bold text-black">Dashboard</h1>
+    <div className="w-[1000px]  max-w-[90vw] mx-auto ">
+      {/* <h1 className=" mb-2 md:mb-4 text-4xl font-bold text-black">Dashboard</h1> */}
+      <h1 className="mt-1 mb-2 md:mb-2 text-3xl font-bold text-white text-center">
+        Post: {postTitle}
+      </h1>
       <select
         onChange={handleSelectedPost}
-        className="pl-2 pr-2 pt-1 pb-1 border border-gray-300 rounded-md "
+        className="block mx-auto mb-2 p-1 bg-white border border-gray-300 rounded-md text-sm"
       >
         <option value="" hidden>
           Choose a post
@@ -42,9 +53,9 @@ export function DashboardMain({ posts }: { posts: any[] }) {
           );
         })}
       </select>
-      <div className="flex flex-col-reverse md:flex-row col gap-2">
-        <DashboardOptions />
-        <DashboardGraphics post={post} />
+      <div className="flex flex-col-reverse md:flex-row col gap-2  bg-white p-5 rounded-2xl">
+        <DashboardOptions handleSelectedChart={handleSelectedChart} />
+        <DashboardGraphics post={post} selectedChart={selectedChart} />
       </div>
     </div>
   );

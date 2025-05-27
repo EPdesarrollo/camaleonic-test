@@ -19,9 +19,9 @@ export async function dashboard() {
   const posts = data.posts;
 
   return (
-    <main className="min-h-screen w-screen pt-20 pb-10 md:pb-20 bg-white  ">
+    <main className="min-h-screen w-screen pt-20 pb-10 md:pb-20 bg-cyan-900  ">
       <DashboardMain posts={posts} />
-      <p className="w-[1200px] max-w-[90vw] m-auto mt-10 text-gray-500 ">
+      <p className="w-[1000px] max-w-[90vw] m-auto mt-10 text-white ">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
         faucibus sed magna sed tincidunt. Fusce finibus magna iaculis dapibus
         fermentum. Vestibulum lacinia id massa non ultrices. Vivamus ex felis,
