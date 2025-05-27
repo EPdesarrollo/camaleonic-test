@@ -5,7 +5,6 @@ import PolarAreaChart from "./Charts/Chart3";
 import RadarChart from "./Charts/Chart4";
 
 export function DashboardGraphics({ post }: { post: any[] }) {
-  console.log("DashboardGraphics post:", post);
   return (
     <section className="m-auto mt-8 w-full md:w-[550px] lg:w-[650px]">
       <BarChart post={post} />

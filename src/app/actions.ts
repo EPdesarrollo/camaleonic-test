@@ -37,8 +37,6 @@ export async function addPost(formData: FormData) {
     }
     user.posts.push(postCreated._id);
     await user.save();
-  } catch (err) {
-    console.error("Error adding post:", err);
-  }
+  } catch (err) {}
   redirect("/tables");
 }
