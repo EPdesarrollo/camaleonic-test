@@ -10,6 +10,7 @@ import {
   PointElement,
   RadialLinearScale,
 } from "chart.js";
+import { options, dataOptionsRadar } from "@/lib/chartOptions";
 
 ChartJS.register(
   Tooltip,
@@ -21,36 +22,16 @@ ChartJS.register(
   RadialLinearScale
 );
 
-export const options = {
-  responsive: true,
-  plugins: {
-    legend: {
-      position: "bottom" as const,
-    },
-    title: {
-      display: true,
-      text: "POST INTERACTIONS",
-    },
-  },
-};
-
-export const data = {
-  labels: ["Likes", "Comments", "Shares", "Saves", "Unlikes", "Reports"],
-  datasets: [
-    {
-      label: "Number of interactions",
-      data: [34, 56, 12, 65, 43, 2],
-      fill: true,
-      backgroundColor: "rgba(25, 99, 132, 0.3)",
-      borderColor: "rgba(25, 99, 132, 1)",
-      pointBackgroundColor: "rgb(255, 99, 132)",
-      pointHoverBackgroundColor: "#fff",
-      pointHoverBorderColor: "rgb(255, 99, 132)",
-    },
-  ],
-};
-
-export function RadarChart() {
+export function RadarChart({ post }: { post: any[] }) {
+  const { likes, comments, shares, saves, unlikes, reports } = post[0];
+  const data = dataOptionsRadar(
+    likes,
+    comments,
+    shares,
+    saves,
+    unlikes,
+    reports
+  );
   return <Radar options={options} data={data} />;
 }
 

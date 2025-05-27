@@ -1,4 +1,7 @@
 import mongoose from "mongoose";
+import "@/models/User";
+import "@/models/Post";
+
 declare global {
   var mongoose: any; // This must be a `var` and not a `let / const`
 }

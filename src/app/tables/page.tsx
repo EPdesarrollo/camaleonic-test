@@ -1,25 +1,7 @@
 import { auth0 } from "@/lib/auth0";
+import { fetchData } from "@/lib/fetchData";
 import PostTable from "@/components/Tables/PostTabel";
 import Unauthorization from "@/components/Authorization/Unauthorization";
-
-async function fetchData(user: string) {
-  try {
-    const params = new URLSearchParams({ user });
-    const res = await fetch(
-      `http://localhost:3000/api/posts?${params.toString()}`
-    );
-    if (!res.ok) {
-      throw new Error();
-    }
-    const data = await res.json();
-    if (data.status !== 200) {
-      throw new Error();
-    }
-    return data;
-  } catch (err) {
-    return null;
-  }
-}
 
 export async function tables() {
   const session = await auth0.getSession();
@@ -28,7 +10,11 @@ export async function tables() {
   }
   const data = await fetchData(session.user.nickname || "");
   if (!data) {
-    return <p>Error: Fetch posts failed! </p>;
+    return (
+      <div className="w-screen h-screen flex items-center justify-center bg-white">
+        <p>Error: Fetch posts failed!</p>;
+      </div>
+    );
   }
   const posts = data.posts;
 
