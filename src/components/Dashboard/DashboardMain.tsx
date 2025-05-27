@@ -15,7 +15,7 @@ export function DashboardMain({ posts }: { posts: any[] }) {
   const [selectedPost, setSelectedPost] = useState(posts[0]?._id || "");
   const [selectedChart, setSelectedChart] = useState<
     "BarChart" | "DoughnutChart" | "PolarAreaChart" | "RadarChart"
-  >("BarChart");
+  >("DoughnutChart");
   function handleSelectedPost(e: React.ChangeEvent<HTMLSelectElement>) {
     setSelectedPost(e.target.value);
   }
