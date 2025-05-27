@@ -7,7 +7,7 @@ export function NavBarBigScreen({ session }: { session: any }) {
         <a className="w-[30%] flex justify-center" href="/">
           <img className="size-8 " src="/logo_simple_camaleonic.png" />
         </a>
-        <div className="w-[30%] flex justify-center gap-4">
+        <div className="w-[30%] flex justify-center gap-5">
           <a
             className="text-text-primary hover:text-text-secondary transition-colors"
             href="/"

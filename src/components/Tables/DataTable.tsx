@@ -2,7 +2,7 @@
 import { useState } from "react";
 import AddPostForm from "./AddPostForm";
 
-export function PostTable({
+export function DataTable({
   posts,
   userSession,
 }: {
@@ -67,8 +67,13 @@ export function PostTable({
           userSession={userSession}
         />
       )}
+      <a href="/dashboard">
+        <button className="mt-4 ml-4 px-2 py-1 md:px-3 md:py-1  bg-blue-500 text-[0.8rem] md:text-sm text-white  rounded-md hover:bg-blue-600 transition duration-200">
+          Dashboard
+        </button>
+      </a>
     </div>
   );
 }
 
-export default PostTable;
+export default DataTable;

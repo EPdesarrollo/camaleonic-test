@@ -21,18 +21,20 @@ export async function Home() {
           </button>
         </div>
       </section>
-      <Graphics />
-      <section className="w-11/12 md:w-3xl lg:w-5xl m-auto mt-40 gap-16">
-        <p className="text-center text-white text-2xl  mb-40 ">
-          <em>
-            ' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-            bibendum ipsum ut vulputate bibendum. Donec congue, sapien a finibus
-            sollicitudin, diam sem convallis nibh, pulvinar varius dolor libero
-            quis quam. Aliquam vel ligula imperdiet enim mollis pharetra nec et
-            leo. '
-          </em>
-        </p>
-      </section>
+      <div className="pt-20 pb-30 bg-white ">
+        <Graphics />
+        <section className="w-11/12 md:w-3xl lg:w-5xl m-auto mt-30 gap-16">
+          <p className="text-center text-gray-700 text-2xl   ">
+            <em>
+              ' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+              bibendum ipsum ut vulputate bibendum. Donec congue, sapien a
+              finibus sollicitudin, diam sem convallis nibh, pulvinar varius
+              dolor libero quis quam. Aliquam vel ligula imperdiet enim mollis
+              pharetra nec et leo. '
+            </em>
+          </p>
+        </section>
+      </div>
     </main>
   );
 }

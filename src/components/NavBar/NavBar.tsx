@@ -6,7 +6,7 @@ export async function NavBar() {
   const session = await auth0.getSession();
 
   return (
-    <nav className="fixed w-screen p-3 flex justify-center  bg-black ">
+    <nav className="fixed w-screen p-3 flex justify-center  bg-gray-950 ">
       <NavBarBigScreen session={session} />
       <NavBarSmallScreen session={session} />
     </nav>

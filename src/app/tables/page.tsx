@@ -1,6 +1,6 @@
 import { auth0 } from "@/lib/auth0";
 import { fetchData } from "@/lib/fetchData";
-import PostTable from "@/components/Tables/PostTabel";
+import DataTable from "@/components/Tables/DataTable";
 import Unauthorization from "@/components/Authorization/Unauthorization";
 
 export async function tables() {
@@ -11,9 +11,13 @@ export async function tables() {
   const data = await fetchData(session.user.nickname || "");
   if (!data) {
     return (
-      <div className="w-screen h-screen flex items-center justify-center bg-white">
-        <p>Error: Fetch posts failed!</p>;
-      </div>
+      <main className="min-h-screen w-screen p-4 pt-20 bg-white grid place-items-center">
+        <div className="max-w-[90%] md:w-[500px]  p-10 bg-gray-200 rounded-md shadow-md text-center">
+          <h1 className="mb-4 text-2xl md:text-3xl text-black font-bold ">
+            Error: Fetch posts failed!
+          </h1>
+        </div>
+      </main>
     );
   }
   const posts = data.posts;
@@ -47,7 +51,7 @@ export async function tables() {
             <p>Reports</p>
           </div>
         </div>
-        <PostTable posts={posts} userSession={session.user.nickname} />
+        <DataTable posts={posts} userSession={session.user.nickname} />
       </section>
     </main>
   );
