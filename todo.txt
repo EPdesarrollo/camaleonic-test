@@ -35,3 +35,8 @@ Imple aplication where user can acces to home but also can log in to acces to th
     -Use of whatever database
 
 7- README with instructions
+
+TODO 
+    Implementing charts using the post data of each user
+    Use chart.js
+    Corrections in fetching and others

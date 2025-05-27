@@ -26,6 +26,9 @@ export async function addPost(formData: FormData) {
       likes: Math.floor(Math.random() * 100),
       comments: Math.floor(Math.random() * 100),
       shares: Math.floor(Math.random() * 100),
+      saves: Math.floor(Math.random() * 100),
+      unlikes: Math.floor(Math.random() * 100),
+      reports: Math.floor(Math.random() * 10),
       user: user._id,
     });
     const postCreated = await newPost.save();
