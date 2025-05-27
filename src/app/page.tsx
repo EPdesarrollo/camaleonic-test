@@ -1,33 +1,11 @@
-import Graphics from "@/components/Home/Graphics";
 import { auth0 } from "@/lib/auth0";
+import { addUser } from "./actions";
+import Graphics from "@/components/Home/Graphics";
 
-async function fetchData(session: any) {
-  try {
-    const res = await fetch("http://localhost:3000/api/users", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        session: session,
-      }),
-    });
-    if (!res.ok) {
-      throw new Error();
-    }
-    const data = await res.json();
-    if (data.status !== 200) {
-      throw new Error();
-    }
-    return data;
-  } catch (err) {
-    return null;
-  }
-}
 export async function Home() {
   const session = await auth0.getSession();
   if (session) {
-    await fetchData(session);
+    await addUser(session);
   }
 
   return (

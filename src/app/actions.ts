@@ -1,5 +1,6 @@
 "use server";
 
+import dbConnect from "@/lib/dbConnection";
 import Post from "@/models/Post";
 import User from "@/models/User";
 import { redirect } from "next/navigation";
@@ -17,6 +18,7 @@ export async function addPost(formData: FormData) {
     }
 
     // database
+    await dbConnect();
     const user = await User.findOne({ username: userForm });
     if (!user) {
       throw new Error();
@@ -39,4 +41,34 @@ export async function addPost(formData: FormData) {
     await user.save();
   } catch (err) {}
   redirect("/tables");
+}
+
+export async function addUser(session: any) {
+  try {
+    // session check
+    if (!session) {
+      return { message: "Unauthorized", status: 403 };
+    }
+    const userSessionName = session.user?.nickname || null;
+    const userSessionEmail = session.user?.email || null;
+
+    if (!userSessionName || !userSessionEmail) {
+      return { message: "Unauthorized", status: 403 };
+    }
+
+    // database
+    await dbConnect();
+    const user = await User.findOne({ username: userSessionName });
+    if (user) {
+      return { message: "User found", status: 200 };
+    }
+    const newUser = new User({
+      username: userSessionName,
+      email: userSessionEmail,
+    });
+    await newUser.save();
+    return { message: "User created!", status: 200 };
+  } catch (err) {
+    return { message: "Error", status: 500 };
+  }
 }
