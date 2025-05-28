@@ -8,6 +8,7 @@ There are three main sections: Home, Dashboard and Tables.
 
 - Registration and Log in
 - Add posts manually
+- When you add a "post", the likes, unlikes, comments, shares, saves, reports are generated automatically with math random to have data information for the graphics
 - Dynamic tables and charts
 - Filter option for the posts list
 
