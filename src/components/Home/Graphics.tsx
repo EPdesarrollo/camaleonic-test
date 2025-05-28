@@ -5,7 +5,7 @@ export function Graphics() {
         <h1 className="mb-1 text-3xl md:text-4xl text-gray-800  font-bold">
           General graphic
         </h1>
-        <p className="mb-5 text-base  text-gray-700">
+        <p className="mb-5 text-base/5 md:text-base/6  text-gray-700">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec semper
           felis sit amet enim aliquam tristique. Nulla egestas tellus nec ligula
           vulputate, nec porttitor nunc aliquam. Nulla quis faucibus ex.
@@ -22,7 +22,7 @@ export function Graphics() {
           <h1 className="mb-1 text-2xl md:text-3xl text-gray-800  font-bold">
             Secondary graphic
           </h1>
-          <p className="mb-5 text-base  text-gray-700">
+          <p className="mb-5 text-base/5 md:text-base/6  text-gray-700">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
             semper felis sit amet enim aliquam tristique.
           </p>
@@ -35,7 +35,7 @@ export function Graphics() {
           <h1 className="mb-1 text-2xl md:text-3xl text-gray-800  font-bold">
             Table
           </h1>
-          <p className="mb-5 text-base  text-gray-700">
+          <p className="mb-5 text-base/5 md:text-base/6  text-gray-700">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
             semper felis sit amet enim aliSed sodales ligula in.
           </p>

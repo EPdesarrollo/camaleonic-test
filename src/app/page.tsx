@@ -12,8 +12,8 @@ export default async function Home() {
     <main className="min-h-screen w-screen ">
       <section className=" h-screen w-screen p-8 grid place-items-center">
         <div className="w-11/12 md:w-3xl lg:w-5xl   flex flex-col gap-10 items-center justify-center">
-          <img className="w-60 md:w-80 lg:w-96" src="/logo_camaleonic.png" />
-          <h1 className="text-2xl text-center text-white font-bold  md:text-5xl lg:text-6xl">
+          <img className="w-65 md:w-80 lg:w-96" src="/logo_camaleonic.png" />
+          <h1 className="text-[1.75rem] text-center text-white font-bold  md:text-5xl lg:text-6xl">
             Real time data analysis to improve decision making
           </h1>
           <button className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition duration-200">
