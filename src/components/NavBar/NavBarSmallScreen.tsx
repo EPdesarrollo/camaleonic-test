@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import LoginButton from "../Authorization/LoginButton";
@@ -18,11 +19,15 @@ export function NavBarSmallScreen({
   return (
     <div className="max-w-[90%] md:hidden w-7xl  flex justify-between items-center">
       <Link onClick={handleShowLinks} href="/">
-        <img className="size-8 " src="/logo_simple_camaleonic.png" />
+        <Image
+          alt="logo"
+          className="size-8 "
+          src="/logo_simple_camaleonic.png"
+        />
       </Link>
       <LoginButton sessionEmail={sessionEmail} />
       <button onClick={handleShowLinks}>
-        <img src="/navBars.png" className="w-8 h-8" />
+        <Image alt="bar menu" src="/navBars.png" className="w-8 h-8" />
       </button>
       <div
         style={styleTranslate}

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import LoginButton from "../Authorization/LoginButton";
 
@@ -10,7 +11,11 @@ export function NavBarBigScreen({
     <div className="hidden md:inline">
       <div className="w-[1200px] max-w-[90vw] content-center flex justify-between items-center">
         <Link className="w-[30%] flex justify-center" href="/">
-          <img className="size-8 " src="/logo_simple_camaleonic.png" />
+          <Image
+            alt="logo"
+            className="size-8 "
+            src="/logo_simple_camaleonic.png"
+          />
         </Link>
         <div className="w-[30%] flex justify-center gap-5">
           <Link

@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export function Graphics() {
   return (
     <section className="w-11/12 md:w-3xl lg:w-5xl m-auto ">
@@ -12,7 +14,8 @@ export function Graphics() {
           Suspendisse cursus nulla vitae felis cursus, faucibus dictum magna
           malesuada.
         </p>
-        <img
+        <Image
+          alt="chart"
           className="w-full p-5 md:p-18 bg-white border border-gray-200 shadow-lg rounded-2xl"
           src="/chartBar.png"
         />
@@ -26,7 +29,8 @@ export function Graphics() {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
             semper felis sit amet enim aliquam tristique.
           </p>
-          <img
+          <Image
+            alt="chart"
             className="w-full p-5 md:p-8 bg-white  border border-gray-200 shadow-lg rounded-2xl"
             src="/chartDoughnut.png"
           />
@@ -39,7 +43,8 @@ export function Graphics() {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
             semper felis sit amet enim aliSed sodales ligula in.
           </p>
-          <img
+          <Image
+            alt="chart"
             className="w-full p-5 md:p-8 bg-white  border border-gray-200 shadow-lg rounded-2xl"
             src="/chartPolarArea.png"
           />

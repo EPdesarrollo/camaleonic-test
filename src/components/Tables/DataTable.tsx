@@ -63,7 +63,7 @@ export function DataTable({
       })}
       <button
         onClick={handleShowForm}
-        className="mt-4 px-2 py-1 md:px-3 md:py-1  bg-sky-600 text-[0.8rem] md:text-sm text-white  rounded-md hover:bg-cyan-700 transition duration-200"
+        className="mt-4 px-2 py-1 md:px-3 md:py-1  bg-blue-500 text-[0.8rem] md:text-sm text-white  rounded-md hover:bg-blue-600 transition duration-200"
       >
         + Add Post
       </button>
@@ -74,7 +74,7 @@ export function DataTable({
         />
       )}
       <Link href="/dashboard">
-        <button className="mt-4 ml-4 px-2 py-1 md:px-3 md:py-1  bg-sky-600 text-[0.8rem] md:text-sm text-white  rounded-md hover:bg-cyan-700 transition duration-200">
+        <button className="mt-4 ml-4 px-2 py-1 md:px-3 md:py-1  bg-blue-500 text-[0.8rem] md:text-sm text-white  rounded-md hover:bg-blue-600 transition duration-200">
           Dashboard
         </button>
       </Link>

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { auth0 } from "@/lib/auth0";
 import { addUser } from "./actions";
 import Graphics from "@/components/Home/Graphics";
@@ -12,11 +13,15 @@ export default async function Home() {
     <main className="min-h-screen w-screen ">
       <section className=" h-screen w-screen p-8 grid place-items-center">
         <div className="w-11/12 md:w-3xl lg:w-5xl   flex flex-col gap-10 items-center justify-center">
-          <img className="w-63 md:w-80 lg:w-96" src="/logo_camaleonic.png" />
+          <Image
+            alt="logo"
+            className="w-63 md:w-80 lg:w-96"
+            src="/logo_camaleonic.png"
+          />
           <h1 className="text-[1.75rem]/9 text-center text-white font-bold  md:text-5xl lg:text-6xl">
             Real time data analysis to improve decision making
           </h1>
-          <button className="bg-sky-600 text-white px-4 py-2 rounded-md hover:bg-cyan-700 transition duration-200">
+          <button className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition duration-200">
             <Link href="/dashboard">Go to dashboard</Link>
           </button>
         </div>

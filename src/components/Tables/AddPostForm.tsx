@@ -35,7 +35,7 @@ export function AddPostForm({
         ></textarea>
         <button
           type="submit"
-          className="mt-2 px-4 py-1 md:px-4 md:py-2   bg-sky-600 text-sm md:text-base text-white rounded-md hover:bg-cyan-700 transition duration-200"
+          className="mt-2 px-4 py-1 md:px-4 md:py-2   bg-blue-500 text-sm md:text-base text-white rounded-md hover:bg-blue-600 transition duration-200"
         >
           Submit
         </button>
