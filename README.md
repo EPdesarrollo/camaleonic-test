@@ -3,12 +3,12 @@
 This is a responsive Social media dashboard developed with Next.js, Tailwind and MongoDB to store the data.
 Users can register and login in the platform and then create posts and visualize the statistics of their posts interactions in four types of charts.
 There are three main sections: Home, Dashboard and Tables.
+When you add a "post", the likes, unlikes, comments, shares, saves, reports are generated automatically with math random to have data information for the graphics. The text of the 'post' doesn't show anywhere because the post is identified by the ID.
 
 ## Characteristics
 
 - Registration and Log in
 - Add posts manually
-- When you add a "post", the likes, unlikes, comments, shares, saves, reports are generated automatically with math random to have data information for the graphics
 - Dynamic tables and charts
 - Filter option for the posts list
 
