@@ -3,6 +3,7 @@ import { auth0 } from "@/lib/auth0";
 import { fetchData } from "@/lib/fetchData";
 import DashboardMain from "@/components/Dashboard/DashboardMain";
 import Unauthorization from "@/components/Authorization/Unauthorization";
+import FailDashboard from "@/components/Dashboard/Fails/FailsDashboard";
 
 export default async function Dashboard() {
   const session = await auth0.getSession();
@@ -12,31 +13,21 @@ export default async function Dashboard() {
   const data = await fetchData(session.user.nickname || "");
   if (!data) {
     return (
-      <main className="min-h-screen w-screen p-4 pt-20 bg-white grid place-items-center">
-        <div className="max-w-[90%] md:w-[500px]  p-10 bg-gray-200 rounded-md shadow-md text-center">
-          <h1 className="mb-4 text-2xl md:text-3xl text-black font-bold ">
-            Error: Fetch posts failed!
-          </h1>
-        </div>
-      </main>
+      <FailDashboard
+        title="Error: Fetch posts failed!"
+        linkTo="/"
+        buttonText="Go Home"
+      />
     );
   }
   const posts = data.posts;
-  console.log(posts);
   if (posts.length === 0) {
     return (
-      <main className="min-h-screen w-screen p-4 pt-20 bg-white grid place-items-center">
-        <div className="max-w-[90%] md:w-[500px]  p-10 bg-gray-200 rounded-md shadow-md text-center">
-          <h1 className="mb-4 text-2xl md:text-3xl text-black font-bold ">
-            Add a post in order to start viewing the graphics
-          </h1>
-          <Link href="/tables">
-            <button className="mt-4 px-4 py-1  bg-blue-500 text-white  rounded-md hover:bg-blue-600 transition duration-200">
-              Add Post
-            </button>
-          </Link>
-        </div>
-      </main>
+      <FailDashboard
+        title="Add a post in order to start viewing the graphics"
+        linkTo="/tables"
+        buttonText="Add post"
+      />
     );
   }
   return (

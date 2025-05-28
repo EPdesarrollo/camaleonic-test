@@ -5,21 +5,6 @@ import DashboardGraphics from "./DashboardGraphics";
 import DashboardOptions from "./DashboardOptions";
 
 export function DashboardMain({ posts }: { posts: PostType[] }) {
-  if (!posts || posts.length === 0) {
-    <main className="min-h-screen w-screen p-4 pt-20 bg-white grid place-items-center">
-      <div className="max-w-[90%] md:w-[500px]  p-10 bg-gray-200 rounded-md shadow-md text-center">
-        <h1 className="mb-4 text-3xl md:text-4xl text-black font-bold ">
-          Add one post to start viewing the graphics
-        </h1>
-        <p className="text-black">Log in to access this page.</p>
-        <a href="/auth/login">
-          <button className="mt-4 px-4 py-1  bg-blue-500 text-white  rounded-md hover:bg-blue-600 transition duration-200">
-            Log in
-          </button>
-        </a>
-      </div>
-    </main>;
-  }
   const [selectedPost, setSelectedPost] = useState(posts[0]?._id || "");
   const [selectedChart, setSelectedChart] = useState<
     "BarChart" | "DoughnutChart" | "PolarAreaChart" | "RadarChart"
