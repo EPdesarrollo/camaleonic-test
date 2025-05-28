@@ -54,7 +54,7 @@ Once the server is running, open your browser and navigate to `http://localhost:
 
 ## Execution
 
-You have two options, since it’s already deployed in vercel you can see it on this link: https://camaleonic-test.vercel.app
+You have two options, since it’s already deployed in vercel you can see it on this link: https://camaleonic-test.vercel.app.
 
 Or if you want to clone and see it in local development:
 

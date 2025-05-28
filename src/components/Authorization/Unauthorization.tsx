@@ -9,7 +9,7 @@ export function Unauthorization({ pageTitle }: { pageTitle: string }) {
         </h1>
         <p className="text-black">Log in to access this page.</p>
         <Link href="/auth/login">
-          <button className="mt-4 px-4 py-1  bg-blue-500 text-white  rounded-md hover:bg-blue-600 transition duration-200">
+          <button className="mt-4 px-4 py-1  bg-sky-600 text-white  rounded-md hover:bg-cyan-700 transition duration-200">
             Log in
           </button>
         </Link>

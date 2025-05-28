@@ -16,12 +16,12 @@ export default async function Home() {
           <h1 className="text-[1.75rem]/9 text-center text-white font-bold  md:text-5xl lg:text-6xl">
             Real time data analysis to improve decision making
           </h1>
-          <button className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition duration-200">
+          <button className="bg-sky-600 text-white px-4 py-2 rounded-md hover:bg-cyan-700 transition duration-200">
             <Link href="/dashboard">Go to dashboard</Link>
           </button>
         </div>
       </section>
-      <div className="pt-20 pb-30 bg-white ">
+      <div className="pt-20 pb-30 bg-gray-50 ">
         <Graphics />
         <section className="w-11/12 md:w-3xl lg:w-5xl m-auto mt-30 gap-16">
           <p className="text-center text-gray-700 text-2xl   ">
