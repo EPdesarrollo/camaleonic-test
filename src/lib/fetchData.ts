@@ -12,7 +12,7 @@ export async function fetchData(user: string) {
       throw new Error();
     }
     return data;
-  } catch (err) {
+  } catch {
     return null;
   }
 }

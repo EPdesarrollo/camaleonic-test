@@ -40,3 +40,10 @@ TODO
     Implementing charts using the post data of each user
     Use chart.js
     Corrections in fetching and others
+
+
+
+./src/lib/dbConnection.ts
+7:3  Error: Unexpected var, use let or const instead.  no-var
+7:17  Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+

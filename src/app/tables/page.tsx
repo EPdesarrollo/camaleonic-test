@@ -3,7 +3,7 @@ import { fetchData } from "@/lib/fetchData";
 import DataTable from "@/components/Tables/DataTable";
 import Unauthorization from "@/components/Authorization/Unauthorization";
 
-export async function tables() {
+export default async function Tables() {
   const session = await auth0.getSession();
   if (!session) {
     return <Unauthorization pageTitle="Tables" />;
@@ -20,6 +20,7 @@ export async function tables() {
       </main>
     );
   }
+  const userSession = session?.user?.nickname || null;
   const posts = data.posts;
 
   return (
@@ -51,10 +52,8 @@ export async function tables() {
             <p>Reports</p>
           </div>
         </div>
-        <DataTable posts={posts} userSession={session.user.nickname} />
+        <DataTable posts={posts} userSession={userSession} />
       </section>
     </main>
   );
 }
-
-export default tables;

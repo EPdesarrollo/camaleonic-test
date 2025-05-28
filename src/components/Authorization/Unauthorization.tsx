@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export function Unauthorization({ pageTitle }: { pageTitle: string }) {
   return (
     <main className="min-h-screen w-screen p-4 pt-20 bg-white grid place-items-center">
@@ -6,11 +8,11 @@ export function Unauthorization({ pageTitle }: { pageTitle: string }) {
           {pageTitle}
         </h1>
         <p className="text-black">Log in to access this page.</p>
-        <a href="/auth/login">
+        <Link href="/auth/login">
           <button className="mt-4 px-4 py-1  bg-blue-500 text-white  rounded-md hover:bg-blue-600 transition duration-200">
             Log in
           </button>
-        </a>
+        </Link>
       </div>
     </main>
   );

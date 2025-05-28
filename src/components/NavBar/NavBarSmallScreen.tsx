@@ -1,8 +1,13 @@
 "use client";
+import Link from "next/link";
 import { useState } from "react";
 import LoginButton from "../Authorization/LoginButton";
 
-export function NavBarSmallScreen({ session }: { session: any }) {
+export function NavBarSmallScreen({
+  sessionEmail,
+}: {
+  sessionEmail: string | null;
+}) {
   const [showLinks, setShowLinks] = useState(false);
   const handleShowLinks = () => {
     setShowLinks(!showLinks);
@@ -12,10 +17,10 @@ export function NavBarSmallScreen({ session }: { session: any }) {
     : { transform: "translateX(-100%)" };
   return (
     <div className="max-w-[90%] md:hidden w-7xl  flex justify-between items-center">
-      <a onClick={handleShowLinks} href="/">
+      <Link onClick={handleShowLinks} href="/">
         <img className="size-8 " src="/logo_simple_camaleonic.png" />
-      </a>
-      <LoginButton session={session} />
+      </Link>
+      <LoginButton sessionEmail={sessionEmail} />
       <button onClick={handleShowLinks}>
         <img src="/navBars.png" className="w-8 h-8" />
       </button>
@@ -24,28 +29,28 @@ export function NavBarSmallScreen({ session }: { session: any }) {
         className="absolute top-14 right-0  w-screen p-8  flex flex-col  bg-gray-600 transition-transform duration-300 ease-in-out"
       >
         <div className="flex flex-col gap-8">
-          <a
+          <Link
             onClick={handleShowLinks}
             className="text-text-primary hover:text-text-secondary transition-colors"
             href="/"
           >
             Home
-          </a>
+          </Link>
 
-          <a
+          <Link
             onClick={handleShowLinks}
             className="text-text-primary hover:text-text-secondary transition-colors"
             href="/dashboard"
           >
             Dashboard
-          </a>
-          <a
+          </Link>
+          <Link
             onClick={handleShowLinks}
             className="text-text-primary hover:text-text-secondary transition-colors"
             href="/tables"
           >
             Tables
-          </a>
+          </Link>
         </div>
       </div>
     </div>

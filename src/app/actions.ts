@@ -4,9 +4,8 @@ import dbConnect from "@/lib/dbConnection";
 import Post from "@/models/Post";
 import User from "@/models/User";
 import { redirect } from "next/navigation";
-import { revalidatePath } from "next/cache";
 
-export async function addPost(formData: FormData) {
+export async function addPost(formData: FormData): Promise<void> {
   try {
     const userForm = formData.get("user");
     const postText = formData.get("text");
@@ -39,19 +38,18 @@ export async function addPost(formData: FormData) {
     }
     user.posts.push(postCreated._id);
     await user.save();
-  } catch (err) {}
+  } catch {
+    redirect("/");
+  }
   redirect("/tables");
 }
 
-export async function addUser(session: any) {
+export async function addUser(
+  userSessionName: string,
+  userSessionEmail: string
+): Promise<{ message: string; status: number }> {
   try {
     // session check
-    if (!session) {
-      return { message: "Unauthorized", status: 403 };
-    }
-    const userSessionName = session.user?.nickname || null;
-    const userSessionEmail = session.user?.email || null;
-
     if (!userSessionName || !userSessionEmail) {
       return { message: "Unauthorized", status: 403 };
     }
@@ -68,7 +66,7 @@ export async function addUser(session: any) {
     });
     await newUser.save();
     return { message: "User created!", status: 200 };
-  } catch (err) {
+  } catch {
     return { message: "Error", status: 500 };
   }
 }

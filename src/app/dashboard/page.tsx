@@ -1,9 +1,10 @@
+import Link from "next/link";
 import { auth0 } from "@/lib/auth0";
 import { fetchData } from "@/lib/fetchData";
 import DashboardMain from "@/components/Dashboard/DashboardMain";
 import Unauthorization from "@/components/Authorization/Unauthorization";
 
-export async function dashboard() {
+export default async function Dashboard() {
   const session = await auth0.getSession();
   if (!session) {
     return <Unauthorization pageTitle="Dashboard" />;
@@ -21,6 +22,7 @@ export async function dashboard() {
     );
   }
   const posts = data.posts;
+  console.log(posts);
   if (posts.length === 0) {
     return (
       <main className="min-h-screen w-screen p-4 pt-20 bg-white grid place-items-center">
@@ -28,11 +30,11 @@ export async function dashboard() {
           <h1 className="mb-4 text-2xl md:text-3xl text-black font-bold ">
             Add a post in order to start viewing the graphics
           </h1>
-          <a href="/tables">
+          <Link href="/tables">
             <button className="mt-4 px-4 py-1  bg-blue-500 text-white  rounded-md hover:bg-blue-600 transition duration-200">
               Add Post
             </button>
-          </a>
+          </Link>
         </div>
       </main>
     );
@@ -52,4 +54,3 @@ export async function dashboard() {
     </main>
   );
 }
-export default dashboard;

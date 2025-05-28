@@ -1,4 +1,5 @@
 "use client";
+import { PostType } from "@/types/post";
 import { PolarArea } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -19,8 +20,8 @@ ChartJS.register(
   ArcElement
 );
 
-export function PolarAreaChart({ post }: { post: any[] }) {
-  const { likes, comments, shares, saves, unlikes, reports } = post[0];
+export function PolarAreaChart({ post }: { post: PostType }) {
+  const { likes, comments, shares, saves, unlikes, reports } = post;
   const data = dataOptions(likes, comments, shares, saves, unlikes, reports);
   return <PolarArea options={options} data={data} />;
 }

@@ -1,34 +1,39 @@
+import Link from "next/link";
 import LoginButton from "../Authorization/LoginButton";
 
-export function NavBarBigScreen({ session }: { session: any }) {
+export function NavBarBigScreen({
+  sessionEmail,
+}: {
+  sessionEmail: string | null;
+}) {
   return (
     <div className="hidden md:inline">
       <div className="w-[1200px] max-w-[90vw] content-center flex justify-between items-center">
-        <a className="w-[30%] flex justify-center" href="/">
+        <Link className="w-[30%] flex justify-center" href="/">
           <img className="size-8 " src="/logo_simple_camaleonic.png" />
-        </a>
+        </Link>
         <div className="w-[30%] flex justify-center gap-5">
-          <a
+          <Link
             className="text-text-primary hover:text-text-secondary transition-colors"
             href="/"
           >
             Home
-          </a>
+          </Link>
 
-          <a
+          <Link
             className="text-text-primary hover:text-text-secondary transition-colors"
             href="/dashboard"
           >
             Dashboard
-          </a>
-          <a
+          </Link>
+          <Link
             className="text-text-primary hover:text-text-secondary transition-colors"
             href="/tables"
           >
             Tables
-          </a>
+          </Link>
         </div>
-        <LoginButton session={session} />
+        <LoginButton sessionEmail={sessionEmail} />
       </div>
     </div>
   );

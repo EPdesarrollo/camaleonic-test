@@ -3,8 +3,14 @@ import "@/models/User";
 import "@/models/Post";
 import { config } from "@/config/config";
 
+type MongooseCache = {
+  conn: typeof mongoose | null;
+  promise: Promise<typeof mongoose> | null;
+};
+
 declare global {
-  var mongoose: any; // This must be a `var` and not a `let / const`
+  // eslint-disable-next-line no-var
+  var mongoose: MongooseCache; // This must be a `var` and not a `let / const`
 }
 
 let cached = global.mongoose;

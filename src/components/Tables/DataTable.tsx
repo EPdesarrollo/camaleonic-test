@@ -1,4 +1,6 @@
 "use client";
+import { PostType } from "@/types/post";
+import Link from "next/link";
 import { useState } from "react";
 import AddPostForm from "./AddPostForm";
 
@@ -6,8 +8,8 @@ export function DataTable({
   posts,
   userSession,
 }: {
-  posts: any;
-  userSession: any;
+  posts: PostType[];
+  userSession: string | null;
 }) {
   const [showForm, setShowForm] = useState(false);
   function handleShowForm() {
@@ -16,7 +18,7 @@ export function DataTable({
 
   return (
     <div>
-      {posts.map((post: any) => {
+      {posts.map((post: PostType) => {
         const idShort = post._id.slice(post._id.length - 4);
         const date = new Date(post.createdAt);
         const options: Intl.DateTimeFormatOptions = {
@@ -67,11 +69,11 @@ export function DataTable({
           userSession={userSession}
         />
       )}
-      <a href="/dashboard">
+      <Link href="/dashboard">
         <button className="mt-4 ml-4 px-2 py-1 md:px-3 md:py-1  bg-blue-500 text-[0.8rem] md:text-sm text-white  rounded-md hover:bg-blue-600 transition duration-200">
           Dashboard
         </button>
-      </a>
+      </Link>
     </div>
   );
 }

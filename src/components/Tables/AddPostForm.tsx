@@ -6,7 +6,7 @@ export function AddPostForm({
   userSession,
 }: {
   handleShowForm: () => void;
-  userSession: string;
+  userSession: string | null;
 }) {
   const user = userSession;
   if (!user) {

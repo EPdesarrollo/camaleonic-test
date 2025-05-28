@@ -16,7 +16,7 @@ export async function GET(request: Request) {
       return Response.json({ message: "User not found", status: 404 });
     }
     return Response.json({ posts: user.posts, status: 200 });
-  } catch (err) {
+  } catch {
     return Response.json({ message: "Error fetching post", status: 500 });
   }
 }

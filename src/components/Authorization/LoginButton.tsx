@@ -1,5 +1,5 @@
-export function LoginButton({ session }: { session: any }) {
-  if (!session) {
+export function LoginButton({ sessionEmail }: { sessionEmail: string | null }) {
+  if (!sessionEmail) {
     return (
       <div className="w-[50%] md:w-[30%] flex justify-center gap-x-4">
         <a
@@ -16,7 +16,7 @@ export function LoginButton({ session }: { session: any }) {
   }
   return (
     <div className="w-[30%]  flex justify-center gap-x-4">
-      <h1 className="text-white hidden md:inline">{session.user.name}</h1>
+      <h1 className="text-white hidden md:inline">{sessionEmail}</h1>
       <a className="text-white" href="/auth/logout">
         Log out
       </a>

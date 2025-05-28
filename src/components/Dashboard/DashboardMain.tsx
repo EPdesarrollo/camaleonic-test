@@ -1,10 +1,10 @@
 "use client";
 import { useState } from "react";
+import { PostType } from "@/types/post";
 import DashboardGraphics from "./DashboardGraphics";
 import DashboardOptions from "./DashboardOptions";
 
-export function DashboardMain({ posts }: { posts: any[] }) {
-  // TODO PLACE A PLACEHOLDER IF NO POSTS
+export function DashboardMain({ posts }: { posts: PostType[] }) {
   if (!posts || posts.length === 0) {
     <main className="min-h-screen w-screen p-4 pt-20 bg-white grid place-items-center">
       <div className="max-w-[90%] md:w-[500px]  p-10 bg-gray-200 rounded-md shadow-md text-center">
@@ -33,12 +33,12 @@ export function DashboardMain({ posts }: { posts: any[] }) {
     setSelectedChart(chartType);
   }
 
-  const post = posts
-    .filter((post) => {
-      return post._id === selectedPost;
-    })
-    .flatMap((post) => post);
+  const post = posts.filter((post) => {
+    return post._id === selectedPost;
+  });
+
   const postTitle = post[0]._id.slice(post[0]._id.length - 4);
+
   return (
     <div className="w-[1000px]  max-w-[90vw] mx-auto ">
       {/* <h1 className=" mb-2 md:mb-4 text-4xl font-bold text-black">Dashboard</h1> */}
@@ -52,7 +52,7 @@ export function DashboardMain({ posts }: { posts: any[] }) {
         <option value="" hidden>
           Choose a post
         </option>
-        {posts.map((post: any) => {
+        {posts.map((post: PostType) => {
           const idShort = post._id.slice(post._id.length - 4);
           return (
             <option key={idShort} value={post._id}>
@@ -61,9 +61,9 @@ export function DashboardMain({ posts }: { posts: any[] }) {
           );
         })}
       </select>
-      <div className="flex flex-col-reverse md:flex-row col gap-2  bg-white p-5 rounded-2xl">
+      <div className="flex flex-col-reverse  md:flex-row col gap-2  bg-white p-5 rounded-2xl">
         <DashboardOptions handleSelectedChart={handleSelectedChart} />
-        <DashboardGraphics post={post} selectedChart={selectedChart} />
+        <DashboardGraphics post={post[0]} selectedChart={selectedChart} />
       </div>
     </div>
   );

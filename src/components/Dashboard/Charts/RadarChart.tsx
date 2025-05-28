@@ -1,4 +1,5 @@
 "use client";
+import { PostType } from "@/types/post";
 import { Radar } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -22,8 +23,8 @@ ChartJS.register(
   RadialLinearScale
 );
 
-export function RadarChart({ post }: { post: any[] }) {
-  const { likes, comments, shares, saves, unlikes, reports } = post[0];
+export function RadarChart({ post }: { post: PostType }) {
+  const { likes, comments, shares, saves, unlikes, reports } = post;
   const data = dataOptionsRadar(
     likes,
     comments,
