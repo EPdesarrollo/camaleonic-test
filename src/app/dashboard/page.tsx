@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { auth0 } from "@/lib/auth0";
 import { fetchData } from "@/lib/fetchData";
 import DashboardMain from "@/components/Dashboard/DashboardMain";
