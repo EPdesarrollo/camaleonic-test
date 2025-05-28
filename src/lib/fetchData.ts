@@ -2,7 +2,8 @@ export async function fetchData(user: string) {
   try {
     const params = new URLSearchParams({ user });
     const res = await fetch(
-      `http://localhost:3000/api/posts?${params.toString()}`
+      // `http://localhost:3000/api/posts?${params.toString()}`
+      `https://camaleonic-test.vercel.app/api/posts?${params.toString()}`
     );
     if (!res.ok) {
       throw new Error();
