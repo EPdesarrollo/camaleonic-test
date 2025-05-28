@@ -5,6 +5,33 @@ import Post from "@/models/Post";
 import User from "@/models/User";
 import { redirect } from "next/navigation";
 
+export async function addUser(
+  userSessionName: string,
+  userSessionEmail: string
+): Promise<{ message: string; status: number }> {
+  try {
+    // session check
+    if (!userSessionName || !userSessionEmail) {
+      return { message: "Unauthorized", status: 403 };
+    }
+
+    // database
+    await dbConnect();
+    const user = await User.findOne({ username: userSessionName });
+    if (user) {
+      return { message: "User found", status: 200 };
+    }
+    const newUser = new User({
+      username: userSessionName,
+      email: userSessionEmail,
+    });
+    await newUser.save();
+    return { message: "User created!", status: 200 };
+  } catch {
+    return { message: "Error", status: 500 };
+  }
+}
+
 export async function addPost(formData: FormData): Promise<void> {
   try {
     const userForm = formData.get("user");
@@ -39,34 +66,43 @@ export async function addPost(formData: FormData): Promise<void> {
     user.posts.push(postCreated._id);
     await user.save();
   } catch {
-    redirect("/");
+    redirect("/tables");
   }
   redirect("/tables");
 }
 
-export async function addUser(
-  userSessionName: string,
-  userSessionEmail: string
-): Promise<{ message: string; status: number }> {
+export async function deletePost(formData: FormData): Promise<void> {
   try {
-    // session check
-    if (!userSessionName || !userSessionEmail) {
-      return { message: "Unauthorized", status: 403 };
+    const userForm = formData.get("user");
+    const postId = formData.get("postId");
+    if (!userForm || typeof userForm !== "string") {
+      throw new Error();
+    }
+    if (!postId || typeof postId !== "string") {
+      throw new Error();
     }
 
     // database
     await dbConnect();
-    const user = await User.findOne({ username: userSessionName });
-    if (user) {
-      return { message: "User found", status: 200 };
+    const user = await User.findOne({ username: userForm });
+    if (!user) {
+      throw new Error();
     }
-    const newUser = new User({
-      username: userSessionName,
-      email: userSessionEmail,
+    const postDeleted = await Post.findByIdAndDelete(postId);
+    if (!postDeleted) {
+      throw new Error();
+    }
+    const userPostFiltered = user.posts.filter((post: string) => {
+      const userPostId = post.toString();
+      const postDeletedId = postDeleted._id.toString();
+
+      return userPostId !== postDeletedId;
     });
-    await newUser.save();
-    return { message: "User created!", status: 200 };
+    user.posts = userPostFiltered;
+
+    await user.save();
   } catch {
-    return { message: "Error", status: 500 };
+    redirect("/tables");
   }
+  redirect("/tables");
 }
